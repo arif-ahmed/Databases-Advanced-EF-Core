@@ -12,13 +12,15 @@ namespace StudentSystem.Models
         public DateTime EndDate { get; set; }
         public int Price { get; set; }
 
-        public ICollection<StudentCourse> EnrolledStudents { get; set; }
-        public ICollection<HomeworkSubmission> Homeworks { get; set; }
+        public ICollection<StudentCourse> StudentsEnrolled { get; set; }
+        public ICollection<Resource> Resources { get; set; }
+        public ICollection<Homework> HomeworkSubmissions { get; set; }
 
         public Course()
         {
-            EnrolledStudents = new List<StudentCourse>();
-            Homeworks = new List<HomeworkSubmission>();
+            StudentsEnrolled = new HashSet<StudentCourse>();
+            Resources = new HashSet<Resource>();
+            HomeworkSubmissions = new HashSet<Homework>();
         }
     }
 }

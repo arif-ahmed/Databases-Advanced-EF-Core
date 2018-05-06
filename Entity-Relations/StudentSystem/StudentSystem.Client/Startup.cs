@@ -1,4 +1,5 @@
 ﻿using System;
+using StudentSystem.Data;
 
 namespace StudentSystem.Client
 {
@@ -6,6 +7,12 @@ namespace StudentSystem.Client
     {
         static void Main()
         {
+            using (var db = StudentSystemContext.CreateInstance())
+            {
+                db.Database.EnsureDeleted();
+                db.Database.EnsureCreated();
+            }
+
             Console.WriteLine("Hello World!");
         }
     }

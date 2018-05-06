@@ -9,15 +9,11 @@ namespace StudentSystem.Data
         private static StudentSystemContext _instance;
 
         public DbSet<Student> Students { get; set; }
-        //public DbSet<Course> Courses { get; set; }
-        //public DbSet<StudentCourse> StudentCourses { get; set; }
-        //public DbSet<Resource> Resources { get; set; }
-        //public DbSet<HomeworkSubmission> HomeworkSubmissions { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<StudentCourse> StudentCourses { get; set; }
+        public DbSet<Resource> Resources { get; set; }
+        public DbSet<Homework> HomeworkSubmissions { get; set; }
 
-        //private StudentSystemContext(DbContextOptions options) : base(options)
-        //{
-
-        //}
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -33,6 +29,10 @@ namespace StudentSystem.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
+            modelBuilder.ApplyConfiguration(new CourseConfiguration());
+            modelBuilder.ApplyConfiguration(new ResourceConfiguration());
+            modelBuilder.ApplyConfiguration(new StudentCourseConfiguration());
+            modelBuilder.ApplyConfiguration(new HomeworkConfiguration());
         }
 
         public static StudentSystemContext CreateInstance()

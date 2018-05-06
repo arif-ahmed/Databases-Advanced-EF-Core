@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StudentSystem.Models
 {
@@ -10,13 +11,13 @@ namespace StudentSystem.Models
         public string PhoneNumber { get; set; }
         public DateTime? RegisteredOn { get; set; }
 
-        // public ICollection<StudentCourse> EnrolledCourses { get; set; }
-        // public ICollection<HomeworkSubmission> Homeworks { get; set; }
+        public ICollection<StudentCourse> CourseEnrollments { get; set; }
+        public ICollection<Homework> HomeworkSubmissions { get; set; }
 
         public Student()
         {
-            //EnrolledCourses = new List<StudentCourse>();
-            //Homeworks = new List<HomeworkSubmission>();
+            CourseEnrollments = new HashSet<StudentCourse>();
+            HomeworkSubmissions = new HashSet<Homework>();
         }
     }
 }

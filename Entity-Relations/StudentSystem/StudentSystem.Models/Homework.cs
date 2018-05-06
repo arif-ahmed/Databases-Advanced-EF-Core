@@ -3,7 +3,7 @@ using StudentSystem.Models.Enums;
 
 namespace StudentSystem.Models
 {
-    public class HomeworkSubmission
+    public class Homework
     {
         public Guid HomeworkId { get; set; }
         public string Content { get; set; }
