@@ -10,6 +10,7 @@ namespace FootballBetting.Models
         public Guid CountryId { get; set; }
 
         public ICollection<Team> Teams { get; set; }
+        public Country Country { get; set; }
 
         public Town()
         {

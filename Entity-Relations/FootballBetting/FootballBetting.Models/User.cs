@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FootballBetting.Models
 {
@@ -10,5 +11,12 @@ namespace FootballBetting.Models
         public string Email { get; set; }
         public string Name { get; set; }
         public decimal Balance { get; set; }
+
+        public ICollection<Bet> Bets { get; set; }
+
+        public User()
+        {
+            Bets = new HashSet<Bet>();
+        }
     }
 }

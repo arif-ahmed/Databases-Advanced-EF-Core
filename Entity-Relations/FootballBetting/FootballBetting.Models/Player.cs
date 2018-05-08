@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FootballBetting.Models
 {
@@ -11,5 +12,15 @@ namespace FootballBetting.Models
         public Guid TeamId { get; set; }
         public Guid PositionId { get; set; }
         public bool IsInjured { get; set; }
+
+        public Team Team { get; set; }
+        public Position Position { get; set; }
+
+        public ICollection<PlayerStatistic> PlayerStatistics { get; set; }
+
+        public Player()
+        {
+            PlayerStatistics = new HashSet<PlayerStatistic>();
+        }
     }
 }

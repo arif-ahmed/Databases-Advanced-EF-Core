@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FootballBetting.Models
 {
@@ -6,5 +7,7 @@ namespace FootballBetting.Models
     {
         public Guid PositionId { get; set; }
         public string Name { get; set; }
+
+        public ICollection<Player> Players { get; set; }
     }
 }

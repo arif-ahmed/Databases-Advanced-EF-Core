@@ -1,8 +1,7 @@
 ﻿namespace FootballBetting.Models.Enums
 {
-    public enum Result
+    public enum Prediction
     {
-        Win,
-        Loose
+        Win, Loose, Draw
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FootballBetting.Models.Enums;
 
 namespace FootballBetting.Models
@@ -18,5 +19,16 @@ namespace FootballBetting.Models
         public Color SecondaryKitColor { get; set; }
 
         public Town Town { get; set; }
+
+        public ICollection<Game> HomeGames { get; set; }
+        public ICollection<Game> AwayGames { get; set; }
+
+        public ICollection<Player> Players { get; set; }
+
+        public Team()
+        {
+            HomeGames = new HashSet<Game>();
+            AwayGames = new HashSet<Game>();
+        }
     }
 }
