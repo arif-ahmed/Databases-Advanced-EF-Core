@@ -1,6 +1,7 @@
-﻿using FootballBetting.Models;
+﻿using FootballBetting.Data.EntityConfiguration;
+using FootballBetting.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
+
 
 namespace FootballBetting.Data
 {
@@ -22,9 +23,9 @@ namespace FootballBetting.Data
                 builder.UseSqlServer(Configuration.ConnectionString);
         }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfiguration(new TeamConfiguration());
         }
 
         public DbSet<Team> Teams { get; set; }
