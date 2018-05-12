@@ -29,6 +29,7 @@ namespace FootballBetting.Models
         {
             HomeGames = new HashSet<Game>();
             AwayGames = new HashSet<Game>();
+            Players = new HashSet<Player>();
         }
     }
 }

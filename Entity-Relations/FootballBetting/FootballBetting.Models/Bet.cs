@@ -6,7 +6,6 @@ namespace FootballBetting.Models
 {
     public class Bet
     {
-        // BetId, Amount, Prediction, DateTime, UserId, GameId
         public Guid BetId { get; set; }
         public decimal Amount { get; set; }
         public Prediction Prediction { get; set; }
@@ -16,11 +15,7 @@ namespace FootballBetting.Models
 
         public Game Game { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public User User { get; set; }
 
-        public Bet()
-        {
-            Users = new HashSet<User>();
-        }
     }
 }

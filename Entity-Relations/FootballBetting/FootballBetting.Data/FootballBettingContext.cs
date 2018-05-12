@@ -18,7 +18,6 @@ namespace FootballBetting.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
-
             if (!builder.IsConfigured)
                 builder.UseSqlServer(Configuration.ConnectionString);
         }
@@ -26,6 +25,15 @@ namespace FootballBetting.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new TeamConfiguration());
+            modelBuilder.ApplyConfiguration(new BetConfiguration());
+            modelBuilder.ApplyConfiguration(new ColorConfiguration());
+            modelBuilder.ApplyConfiguration(new CountryConfiguration());
+            modelBuilder.ApplyConfiguration(new GameConfiguration());
+            modelBuilder.ApplyConfiguration(new PlayerConfiguration());
+            modelBuilder.ApplyConfiguration(new PositionConfiguration());
+            modelBuilder.ApplyConfiguration(new TownConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new PlayerStatisticConfiguration());
         }
 
         public DbSet<Team> Teams { get; set; }
