@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 
 namespace BillsPaymentSystem.Models
@@ -15,6 +17,11 @@ namespace BillsPaymentSystem.Models
         public BankAccount()
         {            
             PaymentMethods = new HashSet<PaymentMethod>();
+        }
+
+        public void Deposite(decimal amount)
+        {
+            Balance += amount;
         }
     }
 }

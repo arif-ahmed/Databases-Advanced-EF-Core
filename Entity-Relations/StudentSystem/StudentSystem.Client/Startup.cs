@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using StudentSystem.Data;
+using StudentSystem.Initializer;
 using StudentSystem.Models;
 using StudentSystem.Models.Enums;
 
@@ -11,8 +13,33 @@ namespace StudentSystem.Client
         {
             using (var db = StudentSystemContext.CreateInstance())
             {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
+                var dbInitialized = new DbInitializer(db);
+
+                List<Student> students = new List<Student>
+                {
+                    new Student
+                    {
+                        Name = "Gosho Petrov",
+                        RegisteredOn = new DateTime(2016, 3, 5)
+                    },
+
+                    new Student
+                    {
+                        Name = "Stamat Ivanov",
+                        Birthday = new DateTime(1995, 1, 7),
+                        RegisteredOn = new DateTime(2016, 12, 20)
+                    },
+
+                    new Student
+                    {
+                        Name = "Mihail Stamatov",
+                        RegisteredOn = new DateTime(2017, 1, 7),
+                        PhoneNumber = "0877445566"
+                    }
+                };
+
+                dbInitialized.AttachMultipleEntities(students).SaveChanges();
+
             }
         }
 

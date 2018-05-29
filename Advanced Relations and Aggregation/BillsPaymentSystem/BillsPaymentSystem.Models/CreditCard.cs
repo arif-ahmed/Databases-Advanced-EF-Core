@@ -17,5 +17,15 @@ namespace BillsPaymentSystem.Models
         {
             PaymentMethods = new HashSet<PaymentMethod>();
         }
+
+        public void Deposite(decimal amount)
+        {
+            if (!(LimitLeft + amount > Limit))
+            {
+                LimitLeft += amount;
+                MoneyOwed -= amount;
+            }
+
+        }
     }
 }
