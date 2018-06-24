@@ -2,9 +2,9 @@
 
 namespace TeamBuilder.Models
 {
-    public class UserTeam : Entity
+    public class TeamEvent : Entity
     {
-        public Guid UserId { get; set; }
         public Guid TeamId { get; set; }
+        public Guid EventId { get; set; }
     }
 }

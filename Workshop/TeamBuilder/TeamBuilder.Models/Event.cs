@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TeamBuilder.Models
 {
     public class Event : Entity
     {
+        public Event()
+        {
+            ParticipatedEventTeams = new List<TeamEvent>();
+        }
+
         public string Name { get; set; }
 
         public string Description { get; set; }
@@ -15,6 +21,8 @@ namespace TeamBuilder.Models
         public Guid CreatorId { get; set; }
 
         // Navigational Properties
-        public User User { get; set; }
+        public User Creator { get; set; }
+
+        public ICollection<TeamEvent> ParticipatedEventTeams { get;set; }
     }
 }

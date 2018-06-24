@@ -7,15 +7,15 @@ namespace TeamBuilder.Models
     {
         public string UserName { get; set; }
 
-        public string Password { get; set; }
-
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
+        public string Password { get; set; }
+
         public Gender Gender { get; set; }
 
-        public int Aget { get; set; }
+        public int Age { get; set; }
 
         public bool IsDeleted { get; set; }
 
@@ -28,6 +28,9 @@ namespace TeamBuilder.Models
         public User()
         {
             CreatedUserTeams = new List<UserTeam>();
+            UserTeams = new List<UserTeam>();
+            CreatedUserTeams = new List<UserTeam>();
+            ReceivedInvitations = new List<Invitation>();
         }
     }
 }
