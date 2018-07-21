@@ -2,7 +2,7 @@
 
 namespace EmployeeManagement.Client.EntityMapper
 {
-    public class EmployeeDTO
+    public class EmployeeDto
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
