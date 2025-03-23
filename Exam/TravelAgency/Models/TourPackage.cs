@@ -5,7 +5,7 @@ public class TourPackage : BaseEntity
 {
     [Required]
     [StringLength(40, MinimumLength = 2, ErrorMessage = "PackageName must be minimum 4 character and maximum 40 charaters in length")]
-    public string? PackageNmae { get; set; }
+    public string? PackageName { get; set; }
     public string? Description { get; set; }
     [Required]
     [Range(0.01, double.MaxValue, ErrorMessage = "Price must be a positive decimal value.")]

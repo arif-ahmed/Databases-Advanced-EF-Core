@@ -10,3 +10,5 @@ public class TourPackageGuide : BaseEntity
     public int GuideId { get; set; }
     public Guide? Guide { get; set; }
 }
+
+
