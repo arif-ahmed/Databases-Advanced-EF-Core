@@ -1,8 +1,12 @@
-﻿namespace MusicHub.Data.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MusicHub.Data.Models;
 public class SongPerformer : BaseEntity
 {
     public int SongId { get; set; }
-    public Song Song { get; set; }
+    [ForeignKey(nameof(SongId))]
+    public virtual Song? Song { get; set; }
     public int PerformerId { get; set; }
-    public Performer Performer { get; set; }
+    [ForeignKey(nameof(PerformerId))]
+    public virtual Performer? Performer { get; set; }
 }

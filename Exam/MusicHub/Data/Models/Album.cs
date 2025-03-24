@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MusicHub.Data.Models;
 public class Album : BaseEntity
@@ -14,7 +15,8 @@ public class Album : BaseEntity
     public decimal Price => Songs.Sum(s => s.Price);
 
     public int ProducerId { get; set; }
-    public Producer Producer { get; set; }
+    [ForeignKey(nameof(ProducerId))]
+    public virtual Producer? Producer { get; set; }
 
-    public ICollection<Song> Songs { get; set; } = new Collection<Song>();
+    public virtual ICollection<Song> Songs { get; set; } = new Collection<Song>();
 }
