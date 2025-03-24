@@ -1,5 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MusicHub.Data;
+using MusicHub.Data.Models;
+using MusicHub.Importer;
+using Newtonsoft.Json.Linq;
 
 namespace MusicHub
 {
@@ -7,20 +10,13 @@ namespace MusicHub
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
-            Test();
+            var options = new DbContextOptionsBuilder<MusicHubDbContext>().UseInMemoryDatabase("MusicHubDB").Options;
+            string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Imports", "import.json");
 
-        }
-
-        static void Test() 
-        {
-            var options = new DbContextOptionsBuilder<MusicHubDbContext>()
-                .UseInMemoryDatabase("MusicHubDB")
-                .Options;
             using (var db = new MusicHubDbContext(options))
             {
-                db.Database.EnsureDeleted();
-                db.Database.EnsureCreated();
+                JsonDataImporter importer = new JsonDataImporter(db, jsonPath);
+                importer.Import();
             }
         }
     }
