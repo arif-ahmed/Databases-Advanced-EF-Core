@@ -19,7 +19,7 @@ public class JsonDataImporter : IImporter
         _dbContext.Database.EnsureDeleted();
         _dbContext.Database.EnsureCreated();
 
-        string jsonPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Imports", "import.json");
+        
         string json = File.ReadAllText(_filePath);
         JObject jObject = JObject.Parse(json);
 
